@@ -1,0 +1,23 @@
+Download http://sourceforge.net/projects/mingw/files/Automated%20MinGW%20Installer/mingw-get-inst/mingw-get-inst-20110530/mingw-get-inst-20110530.exe/download
+Select "Download latest reposity catalogues" - it is before GPL Acceptance
+Tick MinGW Developer Toolkit in the select components window
+open mingw shell
+cd to where you wanna be in windows from the mingw shell
+C:\ is actually /c/ in mingw
+ie: cd /c/dev/sdltest
+download http://www.libsdl.org/tmp/SDL-1.3.zip in windows and unzip it into sdltest or wherever
+open sdltest/sdl-1.3.0-5538 in mingw
+
+./configure
+make
+make install
+
+go back to sdltest/
+gcc main.c -o sdltest.exe -lmingw32 `sdl-config --cflags --libs`
+
+-- ONLY IF YOU WANT TO RUN IT OUTSIDE OF MINGW --
+	we need the dll 
+	copy sdl.dll from C:\MinGW\msys\1.0\local\bin
+	put that in sdltest dir
+
+fuck about, compile using the gcc line above and you should be able to run it in mingw using ./sdltest.exe or in windows by just double clicking it.
